@@ -15,12 +15,10 @@ function game() {
 	this.correct = false;	
 }
 
-
 //When game starts, each letter of the chosen work is replaced with '_'
 function blank(word) {
 		var start = [];
 		for(var i = 0; i < word.length; i++) {
-			console.log(word.charAt(i));
 			if(word.charAt(i) == " ")
 				start.push(" ");
 			else
@@ -63,12 +61,11 @@ function play_game(newGame) {
 	displayGuessedLetter(newGame);
 	document.onkeypress = function() {
 		var input = getInput(event); 
-		console.log(input);
+		//console.log(input);
 		newGame.guessedAlready = false;
 		newGame.correct = false;
 		//Check if valid input (letters)
 		if(input.match(/[abcdefghijklmnopqrstuvwxyz]/i) != null) {
-			console.log("Is Letter");
 			input = input.toLowerCase();
 			//Check if already guesses among correct letters
 			for(var i = 0; i < newGame.correctLetters.length; i++) {
@@ -84,7 +81,6 @@ function play_game(newGame) {
 					break;
 				}
 			}
-			console.log(newGame.guessedAlready);
 			if(!newGame.guessedAlready) {
 				//If input not guessed already, check if exists in chosen word
 				for(var i = 0; i < newGame.currentWord.length; i++) {
@@ -105,6 +101,10 @@ function play_game(newGame) {
 					newGame.guessesLeft--;
 					//If remaining number of guesses reaches zero, restart game with new word
 					if(newGame.guessesLeft == 0) {
+						document.getElementById("win_lose").innerHTML = "YOU LOSE!";
+						displayCharacter(newGame.currentWord);
+						characterPicture(newGame.currentWord);
+						document.getElementById("char_pic").style.visibility = "visible";
 						newGame = new game();
 						play_game(newGame);
 					}
@@ -118,6 +118,9 @@ function play_game(newGame) {
 			document.getElementById("win_lose").innerHTML = "YOU WIN!";
 			wins++;
 			displayWins();
+			displayCharacter(newGame.currentWord);
+			characterPicture(newGame.currentWord);
+			document.getElementById("char_pic").style.visibility = "visible";
 			newGame = new game();
 			play_game(newGame);
 		}
@@ -130,7 +133,8 @@ function start_game() {
 	var newGame = new game();
 	console.log(newGame.currentWord);
 	document.onkeypress = function () {
-		input = getInput(event); 
+		input = getInput(event);
+		document.getElementById("start").style.display = "none";
 		console.log(input);
 		displayWord(newGame);
 	 	displayGuessesLeft(newGame);
@@ -139,71 +143,73 @@ function start_game() {
 	};
 }
 
-	// var input;
-	// var newGame = new game();
-	// console.log(newGame.currentWord);
-	// document.onkeypress = function() {
- // 		displayWord(newGame);
- // 		displayGuessesLeft(newGame);
- // 		document.onkeypress = function() {
- // 		 	if(newGame.guessesLeft > 0) {
-	// 			input = getInput(event); 
-	// 			console.log(input);
-	// 			newGame.guessedAlready = false;
-	// 			newGame.correct = false;
-	// 			if(input.match(/[abcdefghijklmnopqrstuvwxyz]/i) != null) {
-	// 				console.log("Is Letter");
-	// 				input = input.toLowerCase();
-	// 				for(var i = 0; i < newGame.correctLetters.length; i++) {
-	// 					if(input == newGame.correctLetters[i]) {
-	// 						newGame.guessedAlready = true;
-	// 						break;
-	// 					}
-	// 				}
+//Display corresponging text to chosen word (after win/loss)
+function displayCharacter(word) {
+	document.getElementById("character_name").innerHTML = word;
+}
 
-	// 				for(var i = 0; i < newGame.guessedLetters.length; i++) {
-	// 					if(input == newGame.guessedLetters[i]) {
-	// 						newGame.guessedAlready = true;
-	// 						break;
-	// 					}
-	// 				}
-	// 				console.log(newGame.guessedAlready);
-	// 				if(!newGame.guessedAlready) {
-	// 					for(var i = 0; i < newGame.currentWord.length; i++) {
-	// 						if(input == newGame.currentWord.charAt(i).toLowerCase()) {
-	// 							newGame.trackWord[i] = newGame.currentWord.charAt(i);
-	// 							newGame.correct = true;
-	// 						}
-	// 					}
+//Load corresponding picture to chosen word (after win/loss)
+function characterPicture(word) {
+	var picture = document.getElementById("char_pic");
+	switch(word) {
 
-	// 					if(newGame.correct) {
-	// 						displayWord(newGame);
-	// 						newGame.correctLetters.push(input);
-	// 					}
-
-	// 					else if(!newGame.correct) {
-	// 						newGame.guessedLetters.push(input);
-	// 						newGame.guessesLeft--;
-	// 						displayGuessesLeft(newGame);
-	// 						displayGuessedLetter(newGame);
-	// 					}
-	// 				}
-	// 			}
-	// 		}
-	// 		else {
-	// 			newGame
-	// 		}
- // 		};
-	// };
-
-	
-	// document.onkeypress = function() {
-	// 	input = getInput(event); 
-	// 	onKeyPress(input);
-	// };
-
-//	do{
-
-//	}while(guessesLeft > 0);
-
-//} while(restart);
+		case "Pinocchio":
+			picture.setAttribute("src", "assets/images/pinocchio.gif");
+			break;
+		case "Snow White":
+			picture.setAttribute("src", "assets/images/snow_white.png");
+			break;
+		case "Cinderella":
+			picture.setAttribute("src", "assets/images/Cinderella.jpg");
+			break;
+		case "Woody":
+			picture.setAttribute("src", "assets/images/woody.jpg");
+			break;
+		case "Buzz Lightyear":
+			picture.setAttribute("src", "assets/images/buzz_lightyear.png");
+			break;
+		case "Winnie the Pooh":
+			picture.setAttribute("src", "assets/images/winnie_the_pooh.jpg");
+			break;
+		case "Tarzan":
+			picture.setAttribute("src", "assets/images/tarzan.jpg");
+			break;
+		case "Peter Pan":
+			picture.setAttribute("src", "assets/images/peter_pan.jpeg");
+			break;
+		case "Aladdin":
+			picture.setAttribute("src", "assets/images/aladdin.png");
+			break;
+		case "Belle":
+			picture.setAttribute("src", "assets/images/belle.jpg");
+			break;
+		case "Dumbo":
+			picture.setAttribute("src", "assets/images/dumbo.jpg");
+			break;
+		case "Hercules":
+			picture.setAttribute("src", "assets/images/hercules.jpg");
+			break;
+		case "Quasimodo":
+			picture.setAttribute("src", "assets/images/quasimodo.jpg");
+			break;
+		case "Baloo":
+			picture.setAttribute("src", "assets/images/baloo.jpg");
+			break;
+		case "Simba":
+			picture.setAttribute("src", "assets/images/simba.png");
+			break;
+		case "Mufasa":
+			picture.setAttribute("src", "assets/images/mufasa.png");
+			break;
+		case "Ariel":
+			picture.setAttribute("src", "assets/images/ariel.png");
+			break;
+		case "Ursula":
+			picture.setAttribute("src", "assets/images/ursula.png");
+			break;
+		case "Mickey Mouse":
+			picture.setAttribute("src", "assets/images/mickey_mouse.jpg");
+			break;
+		default:;
+	}
+}

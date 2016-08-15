@@ -1,0 +1,36 @@
+body {
+	background-color: rgb(18,60,208);
+}
+p{
+	color: white;
+	font-size: 20px;
+	margin: 30px 0;
+}
+pre {
+	font-size: 20px;
+}
+#disney_logo {
+	margin-left: 60px;
+	width:800px;
+	height: 300px;
+}
+
+.col-md-6 {
+	border-style: solid;
+	border-color: skyblue;
+	height: 500px;
+}
+
+#character_name {
+	margin: 5px 0 0 0;
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+}
+
+#char_pic {
+	margin-left: 20px;
+	visibility: hidden;
+	width: 90%;
+	height: 80%;
+}

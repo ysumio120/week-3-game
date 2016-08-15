@@ -2,15 +2,30 @@
 <html>
 	<head>
 		<title>Hangman</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	</head>
 	<body>
-		<p id="win_lose"></p>
-		<p id="numWins"></p>
-		<p><pre id="displayWord"></pre></p>
-		<p id="guessesLeft"></p>
-		<p id="guessed"></p>
+		<div class="container">
+			<div class="col-md-12">
+				<img id="disney_logo" src="assets/images/disney_logo.png">
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<p id="start">Press any key to start</p>
+					<p id="numWins"></p>
+					<p><pre id="displayWord"></pre></p>
+					<p id="guessesLeft"></p>
+					<p id="guessed"></p>
+					<p id="win_lose"></p>
+				</div>
+				<div class="col-md-6">
+					<p id="character_name"></p>
+					<img id="char_pic">
+				</div>
+			</div>
+		</div>
 		<script type="text/javascript" src="assets/javascript/game.js"></script>
 	</body>
 </html>
