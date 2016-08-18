@@ -4,25 +4,53 @@
 		<title>Hangman</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+		<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	</head>
 	<body>
 		<div class="container">
-			<div class="col-md-12">
-				<img id="disney_logo" src="assets/images/disney_logo.png">
-			</div>
 			<div class="row">
-				<div class="col-md-6">
-					<p id="start">Press any key to start</p>
-					<p id="numWins"></p>
-					<p><pre id="displayWord"></pre></p>
-					<p id="guessesLeft"></p>
-					<p id="guessed"></p>
-					<p id="win_lose"></p>
-				</div>
-				<div class="col-md-6">
+				<div class="col-md-12 text-center banner">
+					<img id="pokemon_logo" src="assets/images/Pokemon_logo.png">
+				</div>	
+			</div>
+			<div class="row" id="game">
+				
+				<div class="col-md-5">
 					<p id="character_name"></p>
+					<img id="question" src="assets/images/question.png">
 					<img id="char_pic">
+				</div>
+				<div class="col-md-7" >
+					<div class="row" >
+						<div id="answers">
+							<p id="start">Press any key to start</p>
+							<p id="numWins"></p>
+							<p id="numLosses"></p>
+							<p><pre id="displayWord"></pre></p>
+							<!-- <p id="guessesLeft"></p> -->
+							<p id="guessed"></p>
+							<p id="win_lose"></p>
+							<p id="timer"></p>
+						</div>
+
+					</div>
+					<div class="row" id="lives">
+						<p>LIVES:</p>
+						<div id="pokeballs">
+							<img src="assets/images/pokeball.png" id="pokeball_1">
+							<img src="assets/images/pokeball.png" id="pokeball_2">
+							<img src="assets/images/pokeball.png" id="pokeball_3">
+							<img src="assets/images/pokeball.png" id="pokeball_4">
+							<img src="assets/images/pokeball.png" id="pokeball_5">
+							<br>
+							<img src="assets/images/pokeball.png" id="pokeball_6">
+							<img src="assets/images/pokeball.png" id="pokeball_7">
+							<img src="assets/images/pokeball.png" id="pokeball_8">
+							<img src="assets/images/pokeball.png" id="pokeball_9">
+							<img src="assets/images/pokeball.png" id="pokeball_10">
+						</div>
+					</div>	
 				</div>
 			</div>
 		</div>
