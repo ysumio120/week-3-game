@@ -17,9 +17,6 @@ var pokemon =
 	"Dragonite", "Mewtwo", "Mew"];
 console.log(pokemon.length);
 
-// var list = ["Pinocchio", "Snow White", "Cinderella", "Woody", "Buzz Lightyear", "Winnie the Pooh",
-// 			"Tarzan", "Peter Pan", "Aladdin", "Belle", "Dumbo", "Hercules", "Quasimodo", "Baloo",
-// 			"Simba", "Mufasa", "Ariel", "Ursula", "Mickey Mouse"];
 var wins = 0;
 var losses = 0;
 start_game();
@@ -170,8 +167,6 @@ function play_game(newGame) {
 						timer();
 					}
 					else {
-					//displayGuessesLeft(newGame);
-					//document.getElementById("pokeball_" + newGame.guessesLeft).setAttribute("style", "-webkit-filter : grayscale(100%)");
 					displayGuessedLetter(newGame);
 					}
 				}
@@ -203,7 +198,6 @@ function start_game() {
 		document.getElementById("start").style.display = "none";
 		console.log(input);
 		displayWord(newGame);
-	 	//displayGuessesLeft(newGame);
 	 	displayWins();
 		play_game(newGame);
 	};
@@ -228,65 +222,4 @@ function characterPicture(word) {
 	}
 
 	picture.setAttribute("src", "assets/images/" + word + ".png");
-	// switch(word) {
-
-	// 	case "Pinocchio":
-	// 		picture.setAttribute("src", "assets/images/pinocchio.gif");
-	// 		break;
-	// 	case "Snow White":
-	// 		picture.setAttribute("src", "assets/images/snow_white.png");
-	// 		break;
-	// 	case "Cinderella":
-	// 		picture.setAttribute("src", "assets/images/Cinderella.jpg");
-	// 		break;
-	// 	case "Woody":
-	// 		picture.setAttribute("src", "assets/images/woody.jpg");
-	// 		break;
-	// 	case "Buzz Lightyear":
-	// 		picture.setAttribute("src", "assets/images/buzz_lightyear.png");
-	// 		break;
-	// 	case "Winnie the Pooh":
-	// 		picture.setAttribute("src", "assets/images/winnie_the_pooh.jpg");
-	// 		break;
-	// 	case "Tarzan":
-	// 		picture.setAttribute("src", "assets/images/tarzan.jpg");
-	// 		break;
-	// 	case "Peter Pan":
-	// 		picture.setAttribute("src", "assets/images/peter_pan.jpeg");
-	// 		break;
-	// 	case "Aladdin":
-	// 		picture.setAttribute("src", "assets/images/aladdin.png");
-	// 		break;
-	// 	case "Belle":
-	// 		picture.setAttribute("src", "assets/images/belle.jpg");
-	// 		break;
-	// 	case "Dumbo":
-	// 		picture.setAttribute("src", "assets/images/dumbo.jpg");
-	// 		break;
-	// 	case "Hercules":
-	// 		picture.setAttribute("src", "assets/images/hercules.jpg");
-	// 		break;
-	// 	case "Quasimodo":
-	// 		picture.setAttribute("src", "assets/images/quasimodo.jpg");
-	// 		break;
-	// 	case "Baloo":
-	// 		picture.setAttribute("src", "assets/images/baloo.jpg");
-	// 		break;
-	// 	case "Simba":
-	// 		picture.setAttribute("src", "assets/images/simba.png");
-	// 		break;
-	// 	case "Mufasa":
-	// 		picture.setAttribute("src", "assets/images/mufasa.png");
-	// 		break;
-	// 	case "Ariel":
-	// 		picture.setAttribute("src", "assets/images/ariel.png");
-	// 		break;
-	// 	case "Ursula":
-	// 		picture.setAttribute("src", "assets/images/ursula.png");
-	// 		break;
-	// 	case "Mickey Mouse":
-	// 		picture.setAttribute("src", "assets/images/mickey_mouse.jpg");
-	// 		break;
-	// 	default:;
-	// }
 }
